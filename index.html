@@ -1,94 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
-    <title>Profil Saya</title>
-  </head>
-  <style>
-    body {
-      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    }
-  </style>
-  <body>
-    <div class="container" align="center" style="width: 500px; height: 200px">
-      <h2>PROFIL SAYA</h2>
-      <img src="img/foto.png" alt="foto" width="30%" />
-      <div class="container-fluid" align="left">
-        <h4>
-          Nama : Boas Yonathan Rajagukguk <br />
-          NIM : 607012390001 <br />
-          Kelas : D3SI-46-01
-        </h4>
-        <p>
-          -------------------------------------------------------------------------------------
-        </p>
-        <form action="" method="" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="id" class="form-label">Jumlah Buku:</label>
-            <input
-              type="number"
-              class="form-control"
-              name="jumlah"
-              id="jumlah"
-              placeholder="Masukkan Jumlah Buku"
-            />
-          </div>
-          <select class="form-select" id="nama">
-            <option selected id="num0">Nama Buku:</option>
-            <option value="1" id="num1">sherlock</option>
-            <option value="2" id="num2">lupin</option>
-            <option value="3" id="num3">aladin</option>
-          </select>
-          <br />
-          <button
-            type="submit"
-            class="btn btn-primary"
-            id="kirim"
-            onclick="cari()"
-          >
-            Cari
-          </button>
-          <p id="result"></p>
-        </form>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <title>Profil Saya</title>
+</head>
+<style>
+  body {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+</style>
+<body>
+  <div class="container" align="center" style="width: 500px; height: 200px">
+    <h2>PROFIL SAYA</h2>
+    <img src="img/foto.png" alt="foto" width="30%" />
+    <div class="container-fluid" align="left">
+      <h4>
+        Nama : Boas Yonathan Rajagukguk <br />
+        NIM : 607012390001 <br />
+        Kelas : D3SI-46-01
+      </h4>
+      <p>
+        -------------------------------------------------------------------------------------
+      </p>
+      <form action="" method="" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="id" class="form-label">Jumlah Buku:</label>
+          <input
+            type="number"
+            class="form-control"
+            name="jumlah"
+            id="jumlah"
+            placeholder="Masukkan Jumlah Buku"
+          />
+        </div>
+        <select class="form-select" id="buku">
+          <option selected disabled>Nama Buku:</option>
+          <option value="num1">sherlock</option>
+          <option value="num2">lupin</option>
+          <option value="num3">aladin</option>
+        </select>
+        <br />
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="kirim"
+          onclick="cari()"
+        >
+          Cari
+        </button>
+      </form>
+      <br>
+      <p id="hasil"></p>
+      <p id="result"></p>
+      <br>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      let buku = [
-        { nama: "sherlock", jumlah: 2 },
-        { nama: "lupin", jumlah: 2 },
-        { nama: "aladin", jumlah: 2 },
-      ];
-      function cari() {
-        var jumlah = parseFloat(document.getElementById("jumlah").value);
-        var nama =  parseFloat(document.getElementById("nama").value);
-        var num0 =  parseFloat(document.getElementById("num0").value);
-        var num1 = parseFloat(document.getElementById("num1").value);
-        var num2 = parseFloat(document.getElementById("num2").value);
-        var num3 = parseFloat(document.getElementById("num3").value);
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let buku = [
+      { nama: "sherlock", jumlah: 2 },
+      { nama: "lupin", jumlah: 2 },
+      { nama: "aladin", jumlah: 2 },
+    ];
+    function cari() {
+      var jumlah = parseFloat(document.getElementById("jumlah").value);
+      var bukuId = document.getElementById("buku").value;
 
-        if (nama = "num0") {
-            alert("Buku Tidak Ditemukan")
-        }
-        else if (jumlah <2 || jumlah >2) {
-            alert("Jumlah Buku Tidak Ditemukan");
-        }
-        else if (jumlah){
-
-        }
+      if (bukuId === "num1" && jumlah <3) {
+        alert("silahkan ambil buku anda")
+        document.getElementById("hasil").textContent = "Hasil:";
+        document.getElementById("result").textContent = "Nama Buku: " + buku[0].nama + ", Jumlah: " + buku[0].jumlah;
+      }
+      else if (bukuId === "num2" && jumlah <2) {
+        alert("silahkan ambil buku anda")
+        document.getElementById("hasil").textContent = "Hasil:";
+        document.getElementById("result").textContent = "Nama Buku: " + buku[1].nama + ", Jumlah: " + buku[1].jumlah;
+      }
+      else if (bukuId === "num3" && jumlah <2) {
+        alert("silahkan ambil buku anda")
+        document.getElementById("hasil").textContent = "Hasil:";
+        document.getElementById("result").textContent = "Nama Buku: " + buku[2].nama + ", Jumlah: " + buku[2].jumlah;
+      }
+      else if (jumlah >2) {
+        alert("Jumlah Buku Tidak Ditemukan");
+      }
+      else if (bukuId === "num0") {
+        alert("Buku Tidak Ditemukan")
+      }
+      else {
+        alert("Buku Tidak Ditemukan")
+      }
     }
-    </script>
-  </body>
+  </script>
+</body>
 </html>
